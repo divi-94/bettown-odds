@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calcolatrice Puntate</title>
+<title>Calcolatrice Puntata</title>
 <style>
   body { font-family: Arial, sans-serif; }
   table { width: 100%; border-collapse: collapse; }
-  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; max-width: 100; }
-  input[type="number"] { width: 100%; padding: 0px; margin-bottom: 0px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left;}
+  input[type="number"] { width: 70%; min-width: 120px; align-self: center; }
   .button { background-color: #4CAF50; color: white; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; }
   @media (max-width: 500px) {
     .container { padding: 0 20px; }
@@ -22,35 +22,35 @@
     <tr>
       <th>Quota Book</th>
       <!-- <th>Puntata con Tax</th> -->
-      <th>Puntata No Tax</th>
+      <th>Puntata</th>
     </tr>
     <tr>
-      <td><input type="text" id="quota1"></td>
+      <td><input type="number" id="quota1"></td>
       <!-- <td id="OddWithTax1"></td> -->
       <td id="OddWithoutTax1"></td>
     </tr>
     <tr>
-      <td><input type="text" id="quota2"></td>
+      <td><input type="number" id="quota2"></td>
       <!-- <td id="OddWithTax2"></td> -->
       <td id="OddWithoutTax2"></td>
     </tr>
     <tr>
-      <td><input type="text" id="quota3"></td>
+      <td><input type="number" id="quota3"></td>
       <!-- <td id="OddWithTax3"></td> -->
       <td id="OddWithoutTax3"></td>
     </tr>
     <tr>
-      <td><input type="text" id="quota4"></td>
+      <td><input type="number" id="quota4"></td>
       <!-- <td id="OddWithTax4"></td> -->
       <td id="OddWithoutTax4"></td>
     </tr>
     <tr>
-      <td><input type="text" id="quota5"></td>
+      <td><input type="number" id="quota5"></td>
       <!-- <td id="OddWithTax5"></td> -->
       <td id="OddWithoutTax5"></td>
     </tr>
     <tr>
-      <td><input type="text" id="quota6"></td>
+      <td><input type="number" id="quota6"></td>
       <!-- <td id="OddWithTax6"></td> -->
       <td id="OddWithoutTax6"></td>
     </tr>
