@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolatrice Quota Book</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; max-width: 100; }
+  input[type="number"] { width: 100%; padding: 0px; margin-bottom: 0px; }
+  .button { background-color: #4CAF50; color: white; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; }
+  @media (max-width: 500px) {
+    .container { padding: 0 20px; }
+    .button { width: 100%; box-sizing: border-box; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <table id="quotaTable">
+    <tr>
+      <th>Quota Book</th>
+      <!-- <th>Puntata con Tax</th> -->
+      <th>Puntata No Tax</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="quota1"></td>
+      <!-- <td id="OddWithTax1"></td> -->
+      <td id="OddWithoutTax1"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="quota2"></td>
+      <!-- <td id="OddWithTax2"></td> -->
+      <td id="OddWithoutTax2"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="quota3"></td>
+      <!-- <td id="OddWithTax3"></td> -->
+      <td id="OddWithoutTax3"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="quota4"></td>
+      <!-- <td id="OddWithTax4"></td> -->
+      <td id="OddWithoutTax4"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="quota5"></td>
+      <!-- <td id="OddWithTax5"></td> -->
+      <td id="OddWithoutTax5"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="quota6"></td>
+      <!-- <td id="OddWithTax6"></td> -->
+      <td id="OddWithoutTax6"></td>
+    </tr>
+
+    <!-- Aggiungi altre righe come necessario -->
+  </table>
+  <button class="button" onclick="calcola()">CALCOLA</button>
+</div>
+<script>
+  function calcola() {
+
+    var bets = []
+    var odds = [];
+
+    for (var i = 1; i <= 6; i++) {
+      var odd = parseFloat(document.getElementById('quota' + i).value.replace(',', '.')) || 0;
+
+      if (odd === 0){
+        bets[i] = 0;
+      }
+      else{
+        bets[i] = 100/odd; 
+      }
+  }
+
+  var sumOfBets = bets.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  console.log(sumOfBets);
+      for (var i = 1; i <= 6; i++) {
+      if (bets[i] === 0)
+      {
+        // document.getElementById('OddWithTax' + i).innerText = "";
+        document.getElementById('OddWithoutTax' + i).innerText = "";
+      }
+      
+      // document.getElementById('OddWithTax' + i).innerText = bets[i].toFixed(2).replace('.', ',');
+
+      var betsWithoutTax = bets[i] * 100 / sumOfBets;
+      document.getElementById('OddWithoutTax' + i).innerText = betsWithoutTax.toFixed(2).replace('.', ',');
+
+  }
+  }
+</script>
+</body>
+</html>
